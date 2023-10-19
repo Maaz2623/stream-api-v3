@@ -33,3 +33,5 @@ export async function POST(request) {
   });
   return NextResponse.json(newMovie, {status: 201})
 }
+
+export const revalidate = 0

@@ -11,3 +11,6 @@ export async function GET(request, {params}){
 }
 
 
+export const revalidate = 0
+
+

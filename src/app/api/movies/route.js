@@ -9,4 +9,5 @@ export async function GET(){
     return NextResponse.json(movies, {status: 200})
 }
 
+export const revalidate = 0
 
