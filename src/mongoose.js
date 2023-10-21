@@ -14,3 +14,5 @@ export const connectToDB = async () => {
         console.log(error)
     }
 }
+
+export const revalidate = 0
