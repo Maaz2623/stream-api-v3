@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import Movie from "@/models/movie";
 import { connectToDB } from "@/mongoose";
 import { NextResponse } from "next/server";
+import { headers } from "../../../../next.config";
 
 export async function POST(request) {
   const {
@@ -15,7 +16,7 @@ export async function POST(request) {
     cast,
     genre,
     director,
-    plot
+    plot,
   } = await request.json();
   await connectToDB();
   const newMovie = await Movie.create({
@@ -29,9 +30,12 @@ export async function POST(request) {
     cast,
     genre,
     director,
-    plot
+    plot,
   });
-  return NextResponse.json(newMovie, {status: 201})
+  return NextResponse.json(newMovie, { status: 201, headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  } });
 }
 
-export const revalidate = 0
+export const revalidate = 0;
