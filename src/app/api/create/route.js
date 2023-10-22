@@ -34,6 +34,9 @@ export async function POST(request) {
   });
   return NextResponse.json(newMovie, {
     status: 201,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:3000',
+    }
   });
 }
 
